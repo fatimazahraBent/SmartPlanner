@@ -13,14 +13,14 @@ struct PixelDayModel: Identifiable, Codable {
         let year = calendar.component(.year, from: Date()) // On récupère l’année actuelle
         var days: [PixelDayModel] = [] // Tableau vide pour stocker les jours
 
-        // 🔁 Pour chaque mois de l’année (1 à 12)
+        // Pour chaque mois de l’année (1 à 12)
         for month in 1...12 {
             // On crée une date correspondant au début du mois
             if let dateInMonth = calendar.date(from: DateComponents(year: year, month: month)),
                // On récupère le nombre de jours dans ce mois
                let range = calendar.range(of: .day, in: .month, for: dateInMonth) {
                 
-                // 🔁 Pour chaque jour du mois
+                // Pour chaque jour du mois
                 for day in range {
                     // On crée une date complète pour ce jour
                     if let date = calendar.date(from: DateComponents(year: year, month: month, day: day)) {
